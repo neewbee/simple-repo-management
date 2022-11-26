@@ -6,6 +6,6 @@
 5. 运行 `npm run start`
 
 ### TODO
-[] bug: 添加项目后会空白一小会
-[] mutationFn 参数类型
-[] 代码优化
+- [ ] bug: 添加项目后会空白一小会
+- [ ] mutationFn 参数类型
+- [ ] 代码优化
