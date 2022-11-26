@@ -3,21 +3,21 @@ import { useQuery } from '@tanstack/react-query';
 import { gql } from 'graphql-request';
 import initGraphQLClient from './GrapgQLConfig'
 import './App.css';
-// import { graphql } from './gql/gql';
+import { graphql } from './gql/gql';
 
 
-const postsQueryDocument = gql`
-  query {
+const postsQueryDocument = graphql(`
+  query postsQueryDocument {
     viewer {
       login
     }
   }
-`
+`)
 
 const graphQLClient = initGraphQLClient();
 
 function App() {
-  const { data } = useQuery(['films', { first: 10 }] as const, async ({ queryKey }) =>
+  const { data } = useQuery(['postsQueryDocument'] as const, async () =>
       await graphQLClient.request(postsQueryDocument)
   );
   console.log('dat', data)
