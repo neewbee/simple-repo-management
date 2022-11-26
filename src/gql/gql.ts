@@ -13,13 +13,23 @@ import { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/
  * Therefore it is highly recommended to use the babel-plugin for production.
  */
 const documents = {
-    "\n  query getAllRepositories {\n    viewer {\n      repositories(first: 100, orderBy: {field:CREATED_AT, direction: DESC}) {\n        pageInfo {hasNextPage, endCursor}\n        nodes {\n          name\n          url\n          createdAt\n          isPrivate\n          owner {\n            login\n          }\n          defaultBranchRef {\n            name\n          }\n        }\n      }\n    }\n  }\n": types.GetAllRepositoriesDocument,
+    "\nquery getAllRepositories {\n  viewer {\n    repositories(first: 100, orderBy: {field:CREATED_AT, direction: DESC}) {\n      pageInfo {hasNextPage, endCursor}\n      nodes {\n        name\n        url\n        createdAt\n        isPrivate\n        owner {\n          login\n        }\n        defaultBranchRef {\n          name\n        }\n      }\n    }\n  }\n}\n": types.GetAllRepositoriesDocument,
+    "\nquery getOwnerId {\n  viewer {\n    id\n  }\n}\n": types.GetOwnerIdDocument,
+    "\nmutation createRepository($name: String = \"\", $visibility: RepositoryVisibility = PUBLIC, $ownerId: ID = \"MDQ6VXNlcjEzNzc3OTQw\") {\ncreateRepository(input: {name: $name, visibility: $visibility, ownerId: $ownerId}) {\n   repository {\n     url\n   }\n }\n}\n": types.CreateRepositoryDocument,
 };
 
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function graphql(source: "\n  query getAllRepositories {\n    viewer {\n      repositories(first: 100, orderBy: {field:CREATED_AT, direction: DESC}) {\n        pageInfo {hasNextPage, endCursor}\n        nodes {\n          name\n          url\n          createdAt\n          isPrivate\n          owner {\n            login\n          }\n          defaultBranchRef {\n            name\n          }\n        }\n      }\n    }\n  }\n"): (typeof documents)["\n  query getAllRepositories {\n    viewer {\n      repositories(first: 100, orderBy: {field:CREATED_AT, direction: DESC}) {\n        pageInfo {hasNextPage, endCursor}\n        nodes {\n          name\n          url\n          createdAt\n          isPrivate\n          owner {\n            login\n          }\n          defaultBranchRef {\n            name\n          }\n        }\n      }\n    }\n  }\n"];
+export function graphql(source: "\nquery getAllRepositories {\n  viewer {\n    repositories(first: 100, orderBy: {field:CREATED_AT, direction: DESC}) {\n      pageInfo {hasNextPage, endCursor}\n      nodes {\n        name\n        url\n        createdAt\n        isPrivate\n        owner {\n          login\n        }\n        defaultBranchRef {\n          name\n        }\n      }\n    }\n  }\n}\n"): (typeof documents)["\nquery getAllRepositories {\n  viewer {\n    repositories(first: 100, orderBy: {field:CREATED_AT, direction: DESC}) {\n      pageInfo {hasNextPage, endCursor}\n      nodes {\n        name\n        url\n        createdAt\n        isPrivate\n        owner {\n          login\n        }\n        defaultBranchRef {\n          name\n        }\n      }\n    }\n  }\n}\n"];
+/**
+ * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function graphql(source: "\nquery getOwnerId {\n  viewer {\n    id\n  }\n}\n"): (typeof documents)["\nquery getOwnerId {\n  viewer {\n    id\n  }\n}\n"];
+/**
+ * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function graphql(source: "\nmutation createRepository($name: String = \"\", $visibility: RepositoryVisibility = PUBLIC, $ownerId: ID = \"MDQ6VXNlcjEzNzc3OTQw\") {\ncreateRepository(input: {name: $name, visibility: $visibility, ownerId: $ownerId}) {\n   repository {\n     url\n   }\n }\n}\n"): (typeof documents)["\nmutation createRepository($name: String = \"\", $visibility: RepositoryVisibility = PUBLIC, $ownerId: ID = \"MDQ6VXNlcjEzNzc3OTQw\") {\ncreateRepository(input: {name: $name, visibility: $visibility, ownerId: $ownerId}) {\n   repository {\n     url\n   }\n }\n}\n"];
 
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.

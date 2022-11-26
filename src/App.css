@@ -43,6 +43,17 @@
   text-align: left;
   margin: 10px;
 }
+
 .App__list li:hover{
   cursor: pointer;
+}
+
+.App__debug {
+  text-align: left;
+}
+
+.App__add {
+  position: fixed;
+  right: 20px;
+  top: 20px;
 }
