@@ -13,13 +13,13 @@ import { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/
  * Therefore it is highly recommended to use the babel-plugin for production.
  */
 const documents = {
-    "\n  query postsQueryDocument {\n    viewer {\n      login\n    }\n  }\n": types.PostsQueryDocumentDocument,
+    "\n  query getAllRepositories {\n    viewer {\n      repositories(first: 100, orderBy: {field:CREATED_AT, direction: DESC}) {\n        pageInfo {hasNextPage, endCursor}\n        nodes {\n          name\n          url\n          createdAt\n          isPrivate\n          owner {\n            login\n          }\n          defaultBranchRef {\n            name\n          }\n        }\n      }\n    }\n  }\n": types.GetAllRepositoriesDocument,
 };
 
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function graphql(source: "\n  query postsQueryDocument {\n    viewer {\n      login\n    }\n  }\n"): (typeof documents)["\n  query postsQueryDocument {\n    viewer {\n      login\n    }\n  }\n"];
+export function graphql(source: "\n  query getAllRepositories {\n    viewer {\n      repositories(first: 100, orderBy: {field:CREATED_AT, direction: DESC}) {\n        pageInfo {hasNextPage, endCursor}\n        nodes {\n          name\n          url\n          createdAt\n          isPrivate\n          owner {\n            login\n          }\n          defaultBranchRef {\n            name\n          }\n        }\n      }\n    }\n  }\n"): (typeof documents)["\n  query getAllRepositories {\n    viewer {\n      repositories(first: 100, orderBy: {field:CREATED_AT, direction: DESC}) {\n        pageInfo {hasNextPage, endCursor}\n        nodes {\n          name\n          url\n          createdAt\n          isPrivate\n          owner {\n            login\n          }\n          defaultBranchRef {\n            name\n          }\n        }\n      }\n    }\n  }\n"];
 
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
